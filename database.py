@@ -34,9 +34,22 @@ def add_one(first, last, email):
     cursor = conn.cursor()
     cursor.execute("""
     --sql
-    INSERT into customers VALUES (?,?,?) 
+    INSERT INTO customers VALUES (?,?,?) 
     ;
     """, (first, last, email))
+
+    # Close connection
+    conn.close()
+
+def add_many(List):
+    # Connect to db and create cursor
+    conn = sqlite3.connect('customer.db')
+    cursor = conn.cursor()
+    cursor.executemany("""
+    --sql
+    INSERT INTO customers VALUES (?,?,?) 
+    ;
+    """, (List))
 
     # Close connection
     conn.close()
