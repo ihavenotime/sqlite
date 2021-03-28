@@ -4,8 +4,10 @@ import sqlite3
 from sqlite3.dbapi2 import connect
 
 # Connect to db and create cursor
+
+
 def show_all():
-    
+
     conn = sqlite3.connect('customer.db')
     cursor = conn.cursor()
 
@@ -27,8 +29,10 @@ def show_all():
     conn.close()
 
 # Add a new record to the table
+
+
 def add_one(first, last, email):
-    
+
     # Connect to db and create cursor
     conn = sqlite3.connect('customer.db')
     cursor = conn.cursor()
@@ -40,6 +44,7 @@ def add_one(first, last, email):
 
     # Close connection
     conn.close()
+
 
 def add_many(List):
     # Connect to db and create cursor
@@ -55,8 +60,10 @@ def add_many(List):
     conn.close()
 
 # remove one record
+
+
 def delete_one(id):
-    
+
     # Connect to db and create cursor
     conn = sqlite3.connect('customer.db')
     cursor = conn.cursor()
@@ -66,6 +73,7 @@ def delete_one(id):
     ;
     """, id)
     conn.close()
+
 
 def lookup_email(email):
     conn = sqlite3.connect('customer.db')
