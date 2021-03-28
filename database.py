@@ -66,3 +66,19 @@ def delete_one(id):
     ;
     """, id)
     conn.close()
+
+def lookup_email(email):
+    conn = sqlite3.connect('customer.db')
+    cursor = conn.cursor()
+    cursor.execute("""
+    --sql
+    SELECT rowid, * from customers WHERE email = (?)
+    ;
+    """, (email,))
+    items = cursor.fetchall()
+
+    for item in items:
+        print(item)
+
+    conn.commit()
+    conn.close()
