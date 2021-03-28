@@ -42,3 +42,15 @@ def add_one(first, last, email):
 
     # Close connection
     conn.close()
+
+def delete_one(id):
+    # remove one record
+
+    # Connect to db and create cursor
+    conn = sqlite3.connect('customer.db')
+    cursor = conn.cursor()
+    cursor.execute("""
+    --sql
+    DELETE from customers WHERE rowid = (?) 
+    ;
+    """, id)
