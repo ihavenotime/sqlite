@@ -52,4 +52,4 @@ def delete_one(id):
     DELETE from customers WHERE rowid = (?) 
     ;
     """, id)
-    
+    conn.close()
